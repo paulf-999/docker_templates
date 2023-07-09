@@ -56,7 +56,6 @@ repos:
       rev: v1.1.2
       hooks:
           - id: dockerfile_lint
-            ignore: Dockerfile.j2
 
     # Jinja linter
     - repo: https://github.com/motet-a/jinjalint
