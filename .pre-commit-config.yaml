@@ -42,7 +42,7 @@ repos:
       rev: v2.12.0
       hooks:
           - id: hadolint
-  # SQLFluff - linter for SQL
+    # SQLFluff - linter for SQL
     - repo: https://github.com/sqlfluff/sqlfluff
       rev: 2.0.2
       hooks:
@@ -51,11 +51,19 @@ repos:
             # in dbt v1.4 there is a breaking change that causes the package 'sqlfluff-templater-dbt' to fail
             additional_dependencies: [dbt-core==1.3, dbt-snowflake==1.3, sqlfluff-templater-dbt==2.0.2]
 
-  # Dockerfile linter
+    # Dockerfile linter
     - repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
       rev: v1.1.2
       hooks:
           - id: dockerfile_lint
+            ignore: Dockerfile.j2
+
+    # Jinja linter
+    - repo: https://github.com/motet-a/jinjalint
+      rev: 01e0a4d8
+      hooks:
+          - id: jinjalint
+            files: \.(j2)$
 
   # - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
   #   rev: 1.0.1  # used to ensure that our dbt standards are upheld
