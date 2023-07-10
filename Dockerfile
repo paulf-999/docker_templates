@@ -8,11 +8,11 @@ LABEL name="baseline_ubuntu_image"
 LABEL desc="Baseline Ubuntu Docker image"
 LABEL version="1.0"
 
-ENV APT_GET_INSTALL_CMD="apt-get -y install --no-install-recommends"
+ENV APT_GET_INSTALL_CMD="apt-get -yqq install --no-install-recommends"
 
 # Install dependencies (if applicable)
 RUN set -ex; \
-    apt-get -y update; \
+    apt-get -yqq update; \
     $APT_GET_INSTALL_CMD build-essential=12.8ubuntu1.1; \
     $APT_GET_INSTALL_CMD git=1:2.25.1-1ubuntu3.11; \
     $APT_GET_INSTALL_CMD python3-pip=20.0.2-5ubuntu1.9; \
@@ -20,6 +20,7 @@ RUN set -ex; \
     $APT_GET_INSTALL_CMD less=551-1ubuntu0.1; \
     $APT_GET_INSTALL_CMD unzip=6.0-25ubuntu1.1; \
     $APT_GET_INSTALL_CMD vim=2:8.1.2269-1ubuntu5.15; \
+    apt-get autoremove -yqq --purge; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 # the last command is used to clean up the apt cache & helps to keep the image size down
