@@ -20,6 +20,7 @@ RUN set -ex; \
     $APT_GET_INSTALL_CMD less=551-1ubuntu0.1; \
     $APT_GET_INSTALL_CMD unzip=6.0-25ubuntu1.1; \
     $APT_GET_INSTALL_CMD vim=2:8.1.2269-1ubuntu5.15; \
+    $APT_GET_INSTALL_CMD openjdk-11-jre; \
     apt-get autoremove -yqq --purge; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
