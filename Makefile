@@ -1,6 +1,8 @@
 SHELL = /bin/sh
 
-# Usage:
+#================================================================
+# Usage
+#================================================================
 # make installations	# install the package for the first time, managing dependencies & performing a housekeeping cleanup too
 # make install		# perform the end-to-end install
 # make clean		# perform a housekeeping cleanup
